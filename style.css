@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.amttan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: antiquewhite;
+  height: 50vh;
+  border-radius: 20px;
+}
+.songoh {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.songoh h3 {
+  font-size: 30px;
+}
+#zahialga {
+  display: flex;
+  background-color: rgb(248, 183, 233);
+  align-items: center;
+  justify-content: center;
+  width: 50vw;
+  height: 15vw;
+  border-radius: 25px;
+  border: 3px dashed rgb(255, 255, 255);
+}
+#zahialga p {
+  font-size: 28px;
+}
+.zahialah {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.button {
+  width: 110px;
+  border-radius: 10px;
+  background-color: rgb(243, 175, 238);
+  border: 1px solid rgb(196, 142, 192);
+  color: rgb(184, 32, 173);
+}
+
+.button p {
+  font-size: 15px;
+}
+.button:hover p {
+  color: white;
+}
+.button:hover {
+  background-color: rgb(219, 34, 206);
+}
