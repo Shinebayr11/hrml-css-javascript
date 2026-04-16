@@ -31,13 +31,25 @@
 //   }
 // });
 
-let asaah = false;
-function towchluur() {
-  let gerelasah = document.querySelector("#gerel");
-  if (asaah) {
-    gerelasah.innerHTML = <img src="./light-on.gif" alt=""></img>;
-    asaah = false;
+// let asaah = false;
+// function towchluur() {
+//   let gerelasah = document.querySelector("#gerel");
+//   if (asaah) {
+//     gerelasah.innerHTML = <img src="./light-on.gif" alt=""></img>;
+//     asaah = false;
+//   } else {
+//     gerelasah.innerHTML = <img src="./light-on.gif" alt=""></img>;
+//   }
+// }
+let lightOff = document.querySelector("#lightOff");
+let lightOn = document.querySelector("#lightOn");
+
+function onOff() {
+  if (lightOff.style.display != "none") {
+    lightOff.style.display = "none";
+    lightOn.style.display = "block";
   } else {
-    gerelasah.innerHTML = <img src="./light-on.gif" alt=""></img>;
+    lightOn.style.display = "none";
+    lightOff.style.display = "block";
   }
 }
