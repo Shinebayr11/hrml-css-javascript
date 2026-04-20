@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./to-do.css" />
+  </head>
+  <body>
+    <section class="todo">
+      <div class="hero">
+        <h1>To-Do list</h1>
+        <div class="task">
+          <input id="input" type="text" placeholder="Add a new task..." />
+          <button id="Add">Add</button>
+        </div>
+        <div class="filter">
+          <button id="All" onclick="allBtn()">All</button>
+          <button id="Active" onclick="active()">Active</button>
+          <button id="Complete" onclick="complete()">Completed</button>
+        </div>
+
+        <div id="tasks" class="tasks">
+          <p>No tasks yet. Add one above!</p>
+          <div id="taskadd">
+            <input type="checkbox" name="" id="" />
+          </div>
+        </div>
+      </div>
+      <footer>
+        <p class="foottext">Powered by</p>
+        <a class="footlink" href="https://pinecone.mn/">Pinecone academy</a>
+      </footer>
+    </section>
+
+    <script src="./to-do.js"></script>
+  </body>
+</html>
