@@ -114,12 +114,12 @@ button {
   text-decoration: none;
 }
 
-#taskadd {
-  display: none;
+.tasks {
+  display: flex;
   width: 345px;
   height: 62px;
   padding: 16px;
   align-items: center;
   gap: 10px;
-  background-color: #000;
+  flex-direction: column;
 }
