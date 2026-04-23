@@ -2,73 +2,21 @@ let ongo = document.querySelector("#All");
 let ongo1 = document.querySelector("#Active");
 let ongo2 = document.querySelector("#Complete");
 
-function allBtn() {
+function filterList() {
   ongo1.style.backgroundColor = "white";
   ongo2.style.backgroundColor = "white";
   ongo.style.backgroundColor = "#3c82f6";
 }
-function active() {
+function filterList(active) {
   ongo.style.backgroundColor = "white";
   ongo2.style.backgroundColor = "white";
   ongo1.style.backgroundColor = "#3c82f6";
 }
-function complete() {
+function filterList(completed) {
   ongo.style.backgroundColor = "white";
   ongo1.style.backgroundColor = "white";
   ongo2.style.backgroundColor = "#3c82f6";
 }
-
-let input = document.getElementById("input");
-let tasks = document.getElementById("tasks");
-function addtext() {
-  let text = input.value;
-  if (text === "") return;
-
-  let yet = document.getElementById("yet");
-  if (yet) {
-    yet.remove();
-  }
-
-  let li = document.createElement("div");
-  li.className = "a";
-  let checkbox = document.createElement("input");
-  let delButton = document.createElement("button");
-  delButton.className = "delButton";
-  let task = document.createElement("p");
-  task.className = "task";
-  task.textContent = text;
-
-  // li.textContent = input.value;
-  checkbox.type = "checkbox";
-  li.appendChild(delButton);
-  li.appendChild(task);
-  li.appendChild(checkbox);
-  tasks.appendChild(li);
-
-  input.value = "";
-}
-
-// function addtext() {
-//   let text = input.value;
-//   if (text === "") return;
-
-// let emptyText = tasks.querySelector("p");
-// if (emptyText) {
-//   emptyText.remove();
-// }
-
-//   let li = document.createElement("li");
-//   let checkbox = document.createElement("input");
-
-//   checkbox.type = "checkbox";
-
-//   li.appendChild(checkbox);
-//   li.append(" " + text);
-
-//   tasks.appendChild(li);
-
-//   input.value = "";
-// }
 
 // const todos = [
 //   {
@@ -94,3 +42,86 @@ function addtext() {
 //    `;
 //   box.innerHTML += todoHtml;
 // }
+
+let lists = [];
+let input = document.getElementById("input");
+let tasks = document.getElementById("tasks");
+
+function addtext() {
+  let text = input.value;
+  if (text === "") return;
+
+  lists.push({ tasklist: input.value, isCompleted: false });
+  renderList();
+  input.value = "";
+}
+
+function renderList() {
+  tasks.innerHTML = "";
+  for (let i = 0; i < lists.length; i++) {
+    let list = lists[i];
+
+    let checkbox = document.createElement("input");
+    let tasksDiv = document.createElement("div");
+    tasksDiv.className = "tasksdiv";
+    let p = document.createElement("p");
+    p.className = "ptext";
+    p.textContent = list.tasklist;
+
+    let delButton = document.createElement("button");
+    delButton.className = "delButton";
+    delButton.textContent = "delete";
+
+    checkbox.type = "checkbox";
+    checkbox.checked = list.isCompleted;
+    checkbox.addEventListener("click", function () {
+      list.isCompleted = !list.isCompleted;
+    });
+    tasks.appendChild(tasksDiv);
+    tasksDiv.appendChild(checkbox);
+    tasksDiv.appendChild(p);
+    tasksDiv.appendChild(delButton);
+  }
+}
+
+function filterList(btnvalue) {
+  tasks.innerHTML = "";
+
+  for (let i = 0; i < lists.length; i++) {
+    let list = lists[i];
+
+    if (
+      btnvalue === "all" ||
+      (btnvalue === "active" && !list.isCompleted) ||
+      (btnvalue === "completed" && list.isCompleted)
+    ) {
+      let checkbox = document.createElement("input");
+      let tasksDiv = document.createElement("div");
+      tasksDiv.className = "tasksdiv";
+
+      let p = document.createElement("p");
+      p.className = "ptext";
+      p.textContent = list.tasklist;
+
+      let delButton = document.createElement("button");
+      delButton.className = "delButton";
+      delButton.textContent = "delete";
+
+      checkbox.type = "checkbox";
+      checkbox.checked = list.isCompleted;
+
+      checkbox.addEventListener("click", function () {
+        list.isCompleted = checkbox.checked;
+      });
+      delButton.addEventListener("click", function () {
+        lists.splice(i, 1);
+        renderList();
+      });
+
+      tasks.appendChild(tasksDiv);
+      tasksDiv.appendChild(checkbox);
+      tasksDiv.appendChild(p);
+      tasksDiv.appendChild(delButton);
+    }
+  }
+}

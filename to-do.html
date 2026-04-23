@@ -15,11 +15,24 @@
           <button id="Add" onclick="addtext()">Add</button>
         </div>
         <div class="filter">
-          <button id="All" onclick="allBtn()">All</button>
-          <button id="Active" onclick="active()">Active</button>
-          <button id="Complete" onclick="complete()">Completed</button>
+          <button class="filterbutton" id="All" onclick="filterList('all')">
+            All
+          </button>
+          <button
+            class="filterbutton"
+            id="Active"
+            onclick="filterList('active')"
+          >
+            Active
+          </button>
+          <button
+            class="filterbutton"
+            id="Complete"
+            onclick="filterList('completed')"
+          >
+            Completed
+          </button>
         </div>
-
         <div class="tasks">
           <div id="tasks">
             <p id="yet">No tasks yet. Add one above!</p>
