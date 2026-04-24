@@ -15,20 +15,33 @@
           <button id="Add" onclick="addtext()">Add</button>
         </div>
         <div class="filter">
-          <button class="filterbutton" id="All" onclick="filterList('all')">
+          <button
+            class="filterbutton"
+            id="All"
+            onclick="
+              filterList('all');
+              setActiveButton(this);
+            "
+          >
             All
           </button>
           <button
             class="filterbutton"
             id="Active"
-            onclick="filterList('active')"
+            onclick="
+              filterList('active');
+              setActiveButton(this);
+            "
           >
             Active
           </button>
           <button
             class="filterbutton"
             id="Complete"
-            onclick="filterList('completed')"
+            onclick="
+              filterList('completed');
+              setActiveButton(this);
+            "
           >
             Completed
           </button>
@@ -38,6 +51,7 @@
             <p id="yet">No tasks yet. Add one above!</p>
           </div>
         </div>
+        <div id="checked"></div>
       </div>
       <footer>
         <p class="foottext">Powered by</p>

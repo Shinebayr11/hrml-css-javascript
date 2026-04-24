@@ -101,11 +101,9 @@ button {
 #tasks {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  height: 180px;
-  align-items: center;
-  justify-content: center;
+  gap: 10px;
   overflow: scroll;
+  height: 120px;
 }
 .tasksdiv:hover .delButton {
   display: block;
@@ -129,4 +127,13 @@ button {
   background: #f9fafb;
   justify-content: space-between;
   color: #000;
+}
+.filterbutton {
+  background-color: white;
+  color: black;
+}
+
+.filterbutton.active {
+  background-color: blue;
+  color: white;
 }
