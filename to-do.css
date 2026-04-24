@@ -137,3 +137,22 @@ button {
   background-color: blue;
   color: white;
 }
+
+#checked {
+  display: flex;
+  justify-content: space-between;
+  color: #6b7280;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.clear {
+  color: #ef4444;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

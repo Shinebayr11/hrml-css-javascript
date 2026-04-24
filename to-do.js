@@ -1,7 +1,7 @@
 let lists = [];
 let input = document.getElementById("input");
 let tasks = document.getElementById("tasks");
-// let checked = document.getElementById("checked");
+let checked = document.getElementById("checked");
 
 function addtext() {
   let text = input.value;
@@ -12,15 +12,28 @@ function addtext() {
   input.value = "";
   console.log(lists);
 }
-
 function renderList() {
   tasks.innerHTML = "";
+  let checkedcount = 0;
   for (let i = 0; i < lists.length; i++) {
     let list = lists[i];
+
+    if (lists[i].isCompleted === true) {
+      checkedcount++;
+    }
+
+    checked.innerHTML = "";
 
     let checkbox = document.createElement("input");
     let tasksDiv = document.createElement("div");
     tasksDiv.className = "tasksdiv";
+
+    let checkedtext = document.createElement("p");
+    checkedtext.textContent = `${checkedcount} of ${lists.length} tasks completed `;
+    let clearcompletedbtn = document.createElement("button");
+    clearcompletedbtn.textContent = "Clear completed ";
+    clearcompletedbtn.className = "clear";
+
     let p = document.createElement("p");
     p.className = "ptext";
     p.textContent = list.tasklist;
@@ -33,6 +46,7 @@ function renderList() {
     checkbox.checked = list.isCompleted;
     checkbox.addEventListener("click", function () {
       list.isCompleted = !list.isCompleted;
+      renderList();
     });
 
     delButton.addEventListener("click", function () {
@@ -44,6 +58,20 @@ function renderList() {
     tasksDiv.appendChild(checkbox);
     tasksDiv.appendChild(p);
     tasksDiv.appendChild(delButton);
+    checked.appendChild(checkedtext);
+    checked.appendChild(clearcompletedbtn);
+
+    clearcompletedbtn.addEventListener("click", function clearbtn() {
+      let tmpList = [];
+      for (let i = 0; i < lists.length; i++) {
+        let list = lists[i];
+        if (lists[i].isCompleted === false) {
+          tmpList.push(list);
+        }
+      }
+      lists = tmpList;
+      renderList();
+    });
   }
 }
 
@@ -75,6 +103,7 @@ function filterList(btnvalue) {
 
       checkbox.addEventListener("click", function () {
         list.isCompleted = checkbox.checked;
+        renderList();
       });
       delButton.addEventListener("click", function () {
         lists.splice(i, 1);
