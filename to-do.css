@@ -8,6 +8,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+ background-color: #2a2a2a;
 }
 .todo {
   display: flex;
@@ -15,14 +16,15 @@ body {
   padding: 24px 16px;
   flex-direction: column;
   gap: 40px;
-  background-color: beige;
   border-radius: 12px;
+  background-color: #eee;
 }
 .hero {
   display: flex;
   width: 100%;
   flex-direction: column;
   gap: 20px;
+  position: relative;
 }
 .hero h1 {
   display: flex;
@@ -113,7 +115,7 @@ button {
   background-color: #fef2f2;
   color: #ef4444;
   width: 70px;
-  height: 50px;
+  height: 32px;
 }
 
 .tasksdiv {
@@ -155,4 +157,59 @@ button {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  height: 32px;
+  padding: 4px 12px;
+}
+
+
+
+#darkToggle {
+  position: absolute;
+
+  border: none;
+  background: #eee;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+body.dark {
+  background: linear-gradient(135deg, #1e1e2f, #121212);
+}
+
+body.dark .todo {
+  background: #1f1f1f;
+  color: white;
+}
+body.dark .tasksdiv {
+  background-color: #6b7280;
+}
+
+
+body.dark h1 {
+  color: white;
+}
+
+body.dark p {
+  color: white;
+}
+
+body.dark #input {
+  background: #333;
+  color: white;
+  border: none;
+}
+
+body.dark #tasks li {
+  background: #2a2a2a;
+}
+
+body.dark .filterbutton {
+  background: #333;
+  color: white;
+}
+
+body.dark .filterbutton.active {
+  background: #667eea;
 }

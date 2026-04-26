@@ -86,6 +86,7 @@ function renderList() {
     checked.appendChild(checkedtext);
     checked.appendChild(clearcompletedbtn);
 
+
     clearcompletedbtn.addEventListener("click", function clearbtn() {
       let tmpList = [];
       for (let i = 0; i < lists.length; i++) {
@@ -153,6 +154,20 @@ function setActiveButton(clickedBtn) {
   clickedBtn.classList.add("active");
 }
 
+
+window.onload = function () {
+  let toggle = document.getElementById("darkToggle");
+
+  toggle.addEventListener("click", function () {
+    document.body.classList.toggle("dark");
+
+    if (document.body.classList.contains("dark")) {
+      toggle.textContent = "☀️";
+    } else {
+      toggle.textContent = "🌙";
+    }
+  });
+};
 
 //   tasks.appendChild(li);
 //   input.value = "";
